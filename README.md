@@ -5,12 +5,12 @@ Loko AI project to classify images between "license" documents and "registration
 
 To start, from the Projects tab, click on Import from git and copy and paste the URL of the current page (i.e. https:/github.com/loko-ai/license_registration_classification):
 
-1. [_loko-vision_ installation](##vision_installation)
-2. [Hands on the project](##hands_on)
+1. [_loko-vision_ installation](#vision_installation)
+2. [Hands on the project](#hands_on)
 3. [Third Example](#third-example)
 
 
-## :electric_plug: _loko-vision_ installation <a name="vision_installation"></a>
+## :electric_plug: <a name="vision_installation">_loko-vision_ installation</a>
 
 To be able to use the loko-vision components inside your workflows, first of all you need to install this extensions. Here's how:
 
@@ -24,7 +24,7 @@ To be able to use the loko-vision components inside your workflows, first of all
 ![](resources/build_vision_image.png)
 
 
-## :mag_right: Hands on the project <a name="hands_on"></a>
+## :mag_right: <a name="hands_on">Hands on the project </a>
 
 
 
