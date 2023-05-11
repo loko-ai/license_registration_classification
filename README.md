@@ -14,64 +14,100 @@ To start, from the Projects tab, click on Import from git and copy and paste the
 
 To be able to use the loko-vision components inside your workflows, first of all you need to install this extensions. Here's how:
 
-- **Step 1:** In the top section of the software, click on the "Applications" field. ![application section](resources/applications_section.png)
+- **Step 1:** In the top section of the software, click on the "Applications" field. ![application section](resources/loko-vision_installation_section/applications_section.png)
 
-- **Step 2:** In the Applications section, you can find the installed extensions and the available ones. Click on the install buttons in order to use the above mentioned components. ![](resources/applications_screen.png)
+- **Step 2:** In the Applications section, you can find the installed extensions and the available ones. Click on the install buttons in order to use the above mentioned components. ![](resources/loko-vision_installation_section/applications_screen.png)
 
 - **Step 3:** Now that you have the extension installed in your local LOKO AI software, you can find the _Vision Manager_ and _Vision_ components in the Blocks list, under the _"Global"_ group as shown in the figure below. <p align="center"><img src="resources/global_extensions.png" alt="Global extensions" width="68%" height="45%" title="Global extensions" /> </p>
 
 - **Step 4:** to enable these blocks you have to click the play button on the installed applications, then a red square. The first time, it will take some times, because clicking on that button you are launching a Docker container, thus a Docker image will be built. Once the image is built, here you can find also the link to the Vision GUI. 
-![](resources/build_vision_image.png)
+![](resources/loko-vision_installation_section/build_vision_image.png)
 
 
 ## :mag_right: <a name="hands_on">Hands on the project </a>
 
 
 
-### Step 1
+
+In order to start the project remember to press the play button on the right of the project's name as shown in the video below, then follow the steps listed afterwards. 
+
+![](resources/hands_on_section/start_projects.gif)
+
+
+
+### Step 1: Create the model
+
+
+To perform a Transfer Learning over a pretrained model it's required firstly to create the model. Hereby, you can either use the _Vision GUI_ or the _Vision Manager_ component: either way you just have to decide the name, select the pretrained model to use, and eventually choose a tag to facilitate the model identification.
+
+
+![](resources/hands_on_section/create_model_gui.gif)
+
+
+
+In order to create the model using the Vision Manager component, just link a trigger to the "create" input of the named component and don't forget to set the name and the pre-trained model to use. Press the "Run" section of the Trigger component and your model will be created. 
+
+![](resources/hands_on_section/create_model_block.png)
+
+
+### Step 2: Train the model
 
 
 
 
-### Transfer Learning
+The next step is the model training: from a workflow view, it can be easily done by linking a _FileReader_ block to the "fit" input of a Vision block and selecting the model to train, as you can see in the [gif below](#training_gif). As a general rule, the file to use for training needs to be a .zip file, which needs to contains a folder for each label you want to have and each of the folder names' will represent the label name itself. 
 
 
-To perform a Transfer Learning over a pretrained model it's required firstly to create the model. Hereby, you can either use the _GUI_ or the _Vision Manager_ component: either way you just have to decide the name, select the pretrained model to use, and eventually choose a tag to facilitate the model identification.
+![training_gif](resources/hands_on_section/training_model.gif)
+
+In this case, we have a zip file called ["license_dataset.zip"](/home/roberta/loko/projects/license_registration_classification/data/license_dataset.zip) which contains two folder: registration and license, each of these . Thus, using this .zip file to train the custom model we built at the previous step, the labels name will be license and registration, and that's the aim of our model: classify between these two categories the image in input.
+
+
+Once the "Run" button of the File Reader block is clicked, you will starts seeing message above the Vision block, that will keep you posted about the state of the training. 
 
 
 
-The next step is the model training, which can be easily done by linking a _FileReader_ block to the "fit" input of a Vision block and selecting the model to train. The file to use for training needs to be a .zip file which needs to contains a folder for each label you want to have and each of the folder names' will represent the label name itself. For example, in the image below we have a zip file "license_dataset.zip", and two folder: registration and license. These two names, using this file to train a model, will represent the labels name. 
+
+### Step 3: Model Evaluation
 
 
-![](resources/license_reg.png)
+You can use the Vision component to evaluate the model just trained and obtain a performance report, that you can save and visualize directly using the Vision GUI.
 
 
-It's also possible to train a multilabel model: in order to do so, you just have to parse a zip data with nested folder, such as:
-
-- Dog
-  - Labrador
-  - Corgi
-  - Chihuahua
-- Cat
-  - Bengal
-  - Burmese
-  - Chartreux
-
-In this case, the model will take as labels all the folders name. When doing the predictions you can choose to use to have multilabel prediction or a classic multiclass. In the second case the labels will reconsidered as: "Dog-Labrador", "Dog-Corgi", "Cat-Bengal", and so on...
+In order to evaluate the model, we start linking a _File Reader_ to the evaluate input of the Vision block: opening this component, in the _Evaluate Parameters_ section select the model you want to evaluate, which in this case will be "license_clf", the model created in the step 1 and trained in the step 2. The file that we need to use in order to evaluate the model must have the same structure seen in the previous step: it must be a .zip file, where the images are grouped in folder, according to their belonging category. In this case, just for demonstrative purpose, we will use the same zipped file used for the training of the model. Here's a gif that shows how to build the workflow:
 
 
-Once the training is done, you can use the customized model to make prediction and evaluate the model. To the evaluate input you need to pass necessarily a _.zip_ file, whilst to perform a prediction you can use eitherway a _.zip_ file or a single image (png, jpg, etc...).
+
+![evaluate_workflow](resources/hands_on_section/evaluate_workflow.gif)
 
 
-Finally, once you have the model evaluation results, you can decide to save in a .eval file. It will always be in a json format, but in this way it will be recognized by the GUI as a possible report file, and you can visualize the model performance, as in the example below.
-
-![](resources/performance_dashboard.png)
-
-In order to do so, just open the GUI, click on the Report button (as shown in the following image) and search on your computer for the report you want to visualize.
 
 
-![](resources/report_gui.png)
-\
+Running this workflow, you will obtain as output value an object containing several classification metrics, such as accuracy, precision, recall and others. You can see the results of the evaluation on the "licence_dataset.zip" dataset in the [image below](#evaluation_report).
+
+
+![evaluation_report](resources/hands_on_section/evaluation_report.png)
+
+
+Once these KPIs have been obtained, it is possible to decide whether to create plots or extract insights by manipulating the metrics independently, or to use the **Vision GUI** which provides a pre-built dashboard that displays the key insights of these metrics both numerically and graphically. To accomplish this, you'll need to save the output object from the Vision component to a _File Writer_, specifying the path, file name, and format. While the format parameter should be set to ".json", the file name must have the extension ".eval" for the GUI to interpret it correctly: as you can see in the gif[ciao](#ciao) we choose as path and filename "data/data/license_eval_report.eval". Once the file is saved, you can navigate to the "Applications" section at the top of the screen and click on the link to the Vision GUI extension. From there, you can access the model evaluation report by clicking on the "Report" button and selecting the file you saved. This will display the dashboard with the key insights of the metrics.
+
+
+
+----- video 2
+
+### Step 4: Expose Prediction and Evaluation services
+
+
+Exposing a service in LOKO AI it's a pretty easy and straightforward process. You need to drag-and-drop two components: Route and Response. Route must be placed in the head of the workflow you want to use, Response in the tail.
+
+
+### Step 5: Test the services
+
+
+
+
+
+
 
 
 
