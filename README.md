@@ -7,7 +7,6 @@ To start, from the Projects tab, click on Import from git and copy and paste the
 
 1. [_loko-vision_ installation](#vision_installation)
 2. [Hands on the project](#hands_on)
-3. [Third Example](#third-example)
 
 
 ## :electric_plug: <a name="vision_installation">_loko-vision_ installation</a>
@@ -18,7 +17,7 @@ To be able to use the loko-vision components inside your workflows, first of all
 
 - **Step 2:** In the Applications section, you can find the installed extensions and the available ones. Click on the install buttons in order to use the above mentioned components. ![](resources/loko-vision_installation_section/applications_screen.png)
 
-- **Step 3:** Now that you have the extension installed in your local LOKO AI software, you can find the _Vision Manager_ and _Vision_ components in the Blocks list, under the _"Global"_ group as shown in the figure below. <p align="center"><img src="resources/global_extensions.png" alt="Global extensions" width="68%" height="45%" title="Global extensions" /> </p>
+- **Step 3:** Now that you have the extension installed in your local LOKO AI software, you can find the _Vision Manager_ and _Vision_ components in the Blocks list, under the _"Global"_ group as shown in the figure below. <p align="center"><img src="resources/loko-vision_installation_section/global_extensions.png" alt="Global extensions" width="68%" height="45%" title="Global extensions" /> </p>
 
 - **Step 4:** to enable these blocks you have to click the play button on the installed applications, then a red square. The first time, it will take some times, because clicking on that button you are launching a Docker container, thus a Docker image will be built. Once the image is built, here you can find also the link to the Vision GUI. 
 ![](resources/loko-vision_installation_section/build_vision_image.png)
@@ -94,7 +93,7 @@ Once these KPIs have been obtained, it is possible to decide whether to create p
 
 ![](resources/hands_on_section/report_gui.gif)
 
-### Step 4: Expose Prediction and Evaluation services
+### Step 4: Expose Prediction service
 
 
 Exposing a service in LOKO AI it's a pretty easy and straightforward process. You need to drag-and-drop two components: Route and Response. Route must be placed in the head of the workflow you want to use, Response in the tail. Inside the Route configuration,  it's possible to set the name of the service, in this case we called it predict, and copying the path clicking on the dedicated copy icon, as shown in the [image below](#route_copy), 
@@ -102,13 +101,28 @@ you will have the complete url to use this service.
 
 ![route_copy](resources/hands_on_section/route_copy.png)
 
+
+Linking a _Function_ component to the _Route_, we will take the file sent by the request and pass it to the "predict" input of the _Vision_ component. The latter output pin will then be linked to the _Response_ in order to obtain the predicted class for the sumbitted image/s. You can find this workflow and the following one in the "Predict Service" tab.
+
+
+![](resources/hands_on_section/service_workflow.png)
+
+
 ### Step 5: Test the services
 
 
+To test this service you can run the following command in your prompt:
 
 
+'''
+curl -X POST http://localhost:9999/routes/orchestrator/endpoints/license_registration_classification/pred_new -F "file=@patente_test.jpg"
+'''
 
 
+consider that you have to run this command being directly in the "resources/data" path, otherwise consider to add the path to "patente_test.jpg", or eventually you can decide to test another image file. Alternatively, it's possible to test the exposed prediction service directly in LOKO AI: you can build a simple workflow, shown in the image below, which reads the image file or even a zipped file using a "File Reader" component and pass it to the HTTP Request component. The latter component's needs to be configured, setting the method as POST and the accept as "json". The URL to use is _http://gateway:8080/routes/orchestrator/endpoints/license_registration_classification/predict_, 
+changing the one's copied using the _Route_ component from http://localhost:9999 to http://gateway:8080 since the request will be executed directly in one of the containers inside the loko network.
+
+![](resources/hands_on_section/service_workflow.png)
 
 
 
