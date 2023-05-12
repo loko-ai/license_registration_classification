@@ -89,17 +89,18 @@ Running this workflow, you will obtain as output value an object containing seve
 ![evaluation_report](resources/hands_on_section/evaluation_report.png)
 
 
-Once these KPIs have been obtained, it is possible to decide whether to create plots or extract insights by manipulating the metrics independently, or to use the **Vision GUI** which provides a pre-built dashboard that displays the key insights of these metrics both numerically and graphically. To accomplish this, you'll need to save the output object from the Vision component to a _File Writer_, specifying the path, file name, and format. While the format parameter should be set to ".json", the file name must have the extension ".eval" for the GUI to interpret it correctly: as you can see in the gif[ciao](#ciao) we choose as path and filename "data/data/license_eval_report.eval". Once the file is saved, you can navigate to the "Applications" section at the top of the screen and click on the link to the Vision GUI extension. From there, you can access the model evaluation report by clicking on the "Report" button and selecting the file you saved. This will display the dashboard with the key insights of the metrics.
+Once these KPIs have been obtained, it is possible to decide whether to create plots or extract insights by manipulating the metrics independently, or to use the **Vision GUI** which provides a pre-built dashboard that displays the key insights of these metrics both numerically and graphically. To accomplish this, you'll need to save the output object from the Vision component to a _File Writer_, specifying the path, file name, and format. While the format parameter should be set to ".json", the file name must have the extension ".eval" for the GUI to interpret it correctly: as you can see in the [gif above](#evaluate_workflow) we choose as path and filename "data/data/license_eval_report.eval". Once the file is saved, you can navigate to the "Applications" section at the top of the screen and click on the link to the Vision GUI extension. From there, you can access the model evaluation report by clicking on the "Report" button and selecting the file you saved. This will display the dashboard with the key insights of the metrics.
 
 
-
------ video 2
+![](resources/hands_on_section/report_gui.gif)
 
 ### Step 4: Expose Prediction and Evaluation services
 
 
-Exposing a service in LOKO AI it's a pretty easy and straightforward process. You need to drag-and-drop two components: Route and Response. Route must be placed in the head of the workflow you want to use, Response in the tail.
+Exposing a service in LOKO AI it's a pretty easy and straightforward process. You need to drag-and-drop two components: Route and Response. Route must be placed in the head of the workflow you want to use, Response in the tail. Inside the Route configuration,  it's possible to set the name of the service, in this case we called it predict, and copying the path clicking on the dedicated copy icon, as shown in the [image below](#route_copy), 
+you will have the complete url to use this service.
 
+![route_copy](resources/hands_on_section/route_copy.png)
 
 ### Step 5: Test the services
 
