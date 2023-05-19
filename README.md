@@ -107,7 +107,6 @@ Linking a _Function_ component to the _Route_, we will take the file sent by the
 
 ![](resources/hands_on_section/service_workflow.png)
 
-
 ### Step 5: Test the services
 
 
@@ -122,7 +121,6 @@ curl -X POST http://localhost:9999/routes/orchestrator/endpoints/license_registr
 consider that you have to run this command being directly in the "resources/data" path, otherwise consider to add the path to "patente_test.jpg", or eventually you can decide to test another image file. Alternatively, it's possible to test the exposed prediction service directly in LOKO AI: you can build a simple workflow, shown in the image below, which reads the image file or even a zipped file using a "File Reader" component and pass it to the HTTP Request component. The latter component's needs to be configured, setting the method as POST and the accept as "json". The URL to use is _http://gateway:8080/routes/orchestrator/endpoints/license_registration_classification/predict_, 
 changing the one's copied using the _Route_ component from http://localhost:9999 to http://gateway:8080 since the request will be executed directly in one of the containers inside the loko network.
 
-![](resources/hands_on_section/service_workflow.png)
-
+![](resources/hands_on_section/test_exposed_service.png)
 
 

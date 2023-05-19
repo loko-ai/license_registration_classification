@@ -3,15 +3,15 @@
   "id": "license_registration_classification",
   "description": "",
   "created_on": "18/04/2023, 14:17:04",
-  "last_modify": "12/05/2023, 15:31:35",
+  "last_modify": "19/05/2023, 14:25:50",
   "graphs": {
     "Model Manager": {
       "nodes": [
         {
           "id": "5678d852-2e97-46d3-a09a-0a11886cf7e3",
           "position": {
-            "x": 477,
-            "y": 248
+            "x": 493.6985410230071,
+            "y": 554.1231762787589
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -95,16 +95,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 477,
-            "y": 248
+            "x": 493.6985410230071,
+            "y": 554.1231762787589
           },
           "__class__": "Node"
         },
         {
           "id": "c4898b21-7550-48cd-bc0c-70cbe1a54184",
           "position": {
-            "x": 776,
-            "y": 384
+            "x": 797,
+            "y": 620
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -260,16 +260,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 776,
-            "y": 384
+            "x": 797,
+            "y": 620
           },
           "__class__": "Node"
         },
         {
           "id": "9d3dfb36-60a5-4109-91a2-fa71ff560a03",
           "position": {
-            "x": 461,
-            "y": 446
+            "x": 472,
+            "y": 694
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -353,8 +353,8 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 461,
-            "y": 446
+            "x": 472,
+            "y": 694
           },
           "__class__": "Node"
         }
@@ -397,7 +397,7 @@
           "id": "9405c588-2dc3-461a-b2a6-3119e5fd6cd0",
           "position": {
             "x": 961,
-            "y": 399
+            "y": 398
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -621,14 +621,14 @@
                 "predictor_name_eval": ""
               }
             },
-            "status": "Training end in 3.640s - 250 epochs runned",
+            "status": "Training end in 2.657s - 250 epochs runned",
             "locked": null
           },
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
             "x": 961,
-            "y": 399
+            "y": 398
           },
           "__class__": "Node"
         },
@@ -987,8 +987,8 @@
                 "include_probs": false,
                 "multilabel": false,
                 "predictor_name_fit": "",
-                "predictor_name_predict": "",
-                "predictor_name_eval": "license_clf"
+                "predictor_name_eval": "license_clf",
+                "predictor_name_predict": ""
               }
             },
             "locked": null
@@ -1103,7 +1103,7 @@
           "id": "69f2ffce-20b4-48ae-93f6-ceb575d560d3",
           "position": {
             "x": 1228.5282194092329,
-            "y": 655.7185717216225
+            "y": 656.7185717216225
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -1201,6 +1201,10 @@
           },
           "selectable": true,
           "draggable": true,
+          "positionAbsolute": {
+            "x": 1228.5282194092329,
+            "y": 656.7185717216225
+          },
           "__class__": "Node"
         },
         {
@@ -1284,8 +1288,8 @@
         {
           "id": "ffbd84ce-31ce-4aab-b743-3d20b64ecd56",
           "position": {
-            "x": 533.1000347363205,
-            "y": 228.9003126268841
+            "x": 531.8534335420454,
+            "y": 230.14691382115922
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -1348,16 +1352,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 533.1000347363205,
-            "y": 228.9003126268841
+            "x": 531.8534335420454,
+            "y": 230.14691382115922
           },
           "__class__": "Node"
         },
         {
           "id": "9d5e48fc-b0f4-4aed-91e3-31324b2e3296",
           "position": {
-            "x": 1337,
-            "y": 223
+            "x": 1340.7398035828253,
+            "y": 224.24660119427506
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -1427,15 +1431,15 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 1337,
-            "y": 223
+            "x": 1340.7398035828253,
+            "y": 224.24660119427506
           },
           "__class__": "Node"
         },
         {
           "id": "da97555a-5f26-4666-b1c9-c91b6dc779e0",
           "position": {
-            "x": 783.6200069472641,
+            "x": 786.1132093358142,
             "y": 228
           },
           "type": "custom",
@@ -1524,7 +1528,7 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 783.6200069472641,
+            "x": 786.1132093358142,
             "y": 228
           },
           "__class__": "Node"
@@ -1532,7 +1536,7 @@
         {
           "id": "c914dea6-f95b-4039-8da7-4ef0ea1e94b5",
           "position": {
-            "x": 919.8776512036094,
+            "x": 920.8776512036094,
             "y": 523.117462481694
           },
           "type": "custom",
@@ -1650,13 +1654,12 @@
                 "method": "POST",
                 "accept": "json"
               }
-            },
-            "locked": null
+            }
           },
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 919.8776512036094,
+            "x": 920.8776512036094,
             "y": 523.117462481694
           },
           "__class__": "Node"
@@ -1766,8 +1769,8 @@
         {
           "id": "b6387c05-c806-47a2-aa8d-05965b611cea",
           "position": {
-            "x": 1060.8486863469564,
-            "y": 226.61663018509196
+            "x": 1062.3418887355067,
+            "y": 223.3700289908169
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -1984,8 +1987,9 @@
                 "epochs": "150",
                 "optimizer": "Adam",
                 "metrics": "accuracy, ",
-                "include_probs": false,
+                "include_probs": true,
                 "multilabel": false,
+                "probability_th": "0.0",
                 "predictor_name_fit": "",
                 "predictor_name_predict": "license_clf",
                 "predictor_name_eval": ""
@@ -1996,8 +2000,8 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 1060.8486863469564,
-            "y": 226.61663018509196
+            "x": 1062.3418887355067,
+            "y": 223.3700289908169
           },
           "__class__": "Node"
         },
@@ -2011,8 +2015,8 @@
           "dragHandle": "#commentHandle",
           "sourcePosition": "right",
           "targetPosition": "left",
-          "width": 1034,
-          "height": 168,
+          "width": 1033.8999652636794,
+          "height": 136,
           "selected": false,
           "dragging": false,
           "data": {
